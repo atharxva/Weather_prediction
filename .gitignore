@@ -1,0 +1,22 @@
+# Virtual environment
+myenv/
+env/
+venv/
+
+# Python cache & build files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Data and Models (optional)
+# data/raw/
+# models/
+
+# IDE / OS files
+.DS_Store
+.vscode/
+.idea/
