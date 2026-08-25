@@ -34,6 +34,9 @@ data = response.json()
 df = pd.DataFrame(data["daily"])
 
 
+df = pd
+
+
 
 print(df.head())
 print(df.shape)
