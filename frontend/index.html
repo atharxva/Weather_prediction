@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Rain Forecast Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z" />
+        </svg>
+      </div>
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active" title="Weather">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            <circle cx="12" cy="12" r="5" />
+          </svg>
+          <span>Weather</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Search Section -->
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="cityInput" placeholder="Search for cities..." value="Madrid" autocomplete="off" />
+        <button id="searchBtn">Predict</button>
+      </div>
+
+      <!-- Loading / Error Message -->
+      <div id="statusMessage" class="status-message hidden"></div>
+
+      <!-- Dashboard Layout -->
+      <div class="dashboard-grid">
+        <!-- Left Main Panel -->
+        <div class="left-panel">
+          <!-- Main Weather Hero -->
+          <div class="weather-hero">
+            <div class="hero-info">
+              <h1 id="cityName">Madrid</h1>
+              <p class="rain-chance">Chance of rain: <span id="rainChance">0%</span></p>
+              <div class="temp-display">
+                <span id="rainForecastStatus">NO RAIN</span>
+                <div class="prediction-badge" id="rainBadge">Rain Tomorrow: NO</div>
+              </div>
+            </div>
+            <div class="hero-icon" id="heroWeatherIcon">
+              ☀️
+            </div>
+          </div>
+
+          <!-- Weather Details / Air Conditions -->
+          <div class="card air-conditions">
+            <div class="card-header">
+              <h3>ML FORECAST DETAILS</h3>
+            </div>
+            <div class="conditions-grid">
+              <div class="condition-item">
+                <div class="cond-title">
+                  <span class="icon">📍</span> Target City
+                </div>
+                <div class="cond-val" id="detailCity">Madrid</div>
+              </div>
+              <div class="condition-item">
+                <div class="cond-title">
+                  <span class="icon">📅</span> Prediction Date
+                </div>
+                <div class="cond-val" id="detailDate">Today</div>
+              </div>
+              <div class="condition-item">
+                <div class="cond-title">
+                  <span class="icon">🌧️</span> Rain Tomorrow?
+                </div>
+                <div class="cond-val highlight" id="detailRain">NO</div>
+              </div>
+              <div class="condition-item">
+                <div class="cond-title">
+                  <span class="icon">📊</span> Rain Probability
+                </div>
+                <div class="cond-val" id="detailProb">0.00%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel: Info & Quick Switch -->
+        <div class="right-panel">
+          <div class="card quick-cities">
+            <h3>POPULAR CITIES</h3>
+            <div class="cities-list">
+              <button class="city-btn" onclick="searchCity('Mumbai')">Mumbai</button>
+              <button class="city-btn" onclick="searchCity('London')">London</button>
+              <button class="city-btn" onclick="searchCity('Tokyo')">Tokyo</button>
+              <button class="city-btn" onclick="searchCity('New York')">New York</button>
+              <button class="city-btn" onclick="searchCity('Paris')">Paris</button>
+              <button class="city-btn" onclick="searchCity('Sydney')">Sydney</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
