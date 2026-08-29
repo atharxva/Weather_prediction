@@ -1,4 +1,4 @@
-const API_URL = 'http://54.174.234.18/predict';
+const API_URL = '/api/predict';
 
 const cityInput = document.getElementById('cityInput');
 const searchBtn = document.getElementById('searchBtn');
