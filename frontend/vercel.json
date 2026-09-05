@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/predict",
-      "destination": "http://54.174.234.18/predict"
-    }
-  ]
-}

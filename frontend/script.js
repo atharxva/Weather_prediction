@@ -1,4 +1,4 @@
-const API_URL = '/api/predict';
+const API_URL = '/predict';
 
 const cityInput = document.getElementById('cityInput');
 const searchBtn = document.getElementById('searchBtn');
@@ -24,17 +24,17 @@ async function fetchWeather(city) {
 
   try {
     const response = await fetch(`${API_URL}?city=${encodeURIComponent(city.trim())}`);
-    
+
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({ detail: 'Failed to fetch weather prediction' }));
       throw new Error(errorData.detail || 'City not found or server error.');
     }
 
     const data = await response.json();
-    
+
     // Hide status message on success
     statusMessage.className = 'status-message hidden';
-    
+
     updateUI(data);
   } catch (err) {
     statusMessage.className = 'status-message error';
@@ -46,7 +46,7 @@ function updateUI(data) {
   // data format: { city: "Madrid, Spain", date: "2026-08-27", rain_tomorrow: "NO", rain_probability: "0.00%" }
   cityNameEl.textContent = data.city;
   rainChanceEl.textContent = data.rain_probability;
-  
+
   const willRain = data.rain_tomorrow === 'YES';
 
   if (willRain) {
